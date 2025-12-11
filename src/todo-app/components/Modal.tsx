@@ -5,11 +5,11 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ title, children }) => {
+const Modal = ({ title, children }: ModalProps) => {
   return (
     <div
       style={{
-        border: "1px solid #ccc",
+        border: "10px solid #ccc",
         borderRadius: 8,
         padding: 24,
         maxWidth: 500,

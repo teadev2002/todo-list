@@ -1,9 +1,11 @@
 import type { Todo } from "../types";
 import { Card } from "antd";
 interface TodoCardProps {
-  todo: Todo;
+  // Props interface
+  todo: Todo; // Single todo item of type Todo
 }
-function TodoCard({ todo }: TodoCardProps) {
+const TodoCard = ({ todo }: TodoCardProps) => {
+  // Functional component taking TodoCardProps as props
   return (
     <div>
       <Card>
@@ -14,6 +16,6 @@ function TodoCard({ todo }: TodoCardProps) {
       </Card>
     </div>
   );
-}
+};
 
 export default TodoCard;
