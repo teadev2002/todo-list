@@ -1,11 +1,11 @@
 //import Practice from "./Practice";
-import Layout from "./todo-app/components/Layout";
+import TodoPage from "./todo-app/components/Layout";
 
 function App() {
   return (
     <div>
       {/* <Practice /> */}
-      <Layout />
+      <TodoPage />
     </div>
   );
 }

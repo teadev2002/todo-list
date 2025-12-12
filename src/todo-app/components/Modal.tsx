@@ -9,11 +9,10 @@ const Modal = ({ title, children }: ModalProps) => {
   return (
     <div
       style={{
-        border: "10px solid #ccc",
-        borderRadius: 8,
-        padding: 24,
-        maxWidth: 500,
-        margin: "0 auto",
+        padding: "16px",
+        background: "#fff",
+        borderRadius: "8px",
+        boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
       }}
     >
       <h2 style={{ margin: "0 0 16px" }}>{title}</h2>

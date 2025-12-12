@@ -1,25 +1,24 @@
-import { List, ListItem } from "@mui/material";
-
-interface ListProps<T> {
-  // Generic type T
-  items: T[]; // Array of items of type T
-  renderItem: (item: T) => React.ReactNode; // Function to render each item
+import { List } from "@mui/material";
+import TodoItem from "./TodoItem";
+import type { Todo } from "../types";
+interface Props {
+  todos: Todo[];
+  toggleTodo: (id: string) => void;
+  deleteTodo: (id: string) => void;
 }
-
-const ListGeneric = <T,>({ items, renderItem }: ListProps<T>) => {
-  // Generic type T
+const TodoList = ({ todos, toggleTodo, deleteTodo }: Props) => {
   return (
     <List>
-      {items.map(
-        (
-          item,
-          index // Use index as key for simplicity
-        ) => (
-          <ListItem key={index}>{renderItem(item)}</ListItem> // Render each item using renderItem
-        )
-      )}
+      {todos.map((todo) => (
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          toggleTodo={toggleTodo}
+          deleteTodo={deleteTodo}
+        />
+      ))}
     </List>
   );
 };
 
-export default ListGeneric;
+export default TodoList;

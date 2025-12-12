@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocalStorage } from "./useLocalStorageSync";
+import { useLocalStorage } from "./useLocalStorage";
 import { useToggle } from "./useToggle";
 
 export function useDarkMode() {

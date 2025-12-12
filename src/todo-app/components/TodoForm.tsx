@@ -8,27 +8,21 @@ interface TodoFormProps {
 
 // Destructure the addTodo prop
 const TodoForm = ({ addTodo }: TodoFormProps) => {
-  const [todo, setTodo] = useState<string>("");
+  const [text, setText] = useState("");
 
   const handleSubmit = () => {
-    if (todo.trim() === "") {
-      // Use trim() to handle empty space input
-      message.warning("Please input something");
-      return;
-    }
-
-    addTodo(todo); // Call the function passed from Layout to add the todo
-
-    message.success(`Added: ${todo}`);
-    setTodo("");
+    if (!text.trim()) return message.warning("Please type something");
+    addTodo(text);
+    setText("");
+    message.success("Todo added");
   };
 
   return (
     <div style={{ display: "flex" }}>
       <Input
-        value={todo}
-        onChange={(e) => setTodo(e.target.value)}
-        placeholder="Input something"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Input todo"
       />
       <br />
 
