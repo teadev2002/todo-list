@@ -1,14 +1,10 @@
 //import Practice from "./Practice";
 
-import TodoPage from "./todo-app/components/TodoPage";
-
+import DisplayApp from "./DisplayApp";
 function App() {
   return (
     <div>
-      {/* <Practice /> */}
-      <TodoPage />
-
-      {/* <TestEx1 /> */}
+      <DisplayApp />
     </div>
   );
 }
