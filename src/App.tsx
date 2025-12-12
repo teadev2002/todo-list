@@ -1,4 +1,5 @@
 //import Practice from "./Practice";
+
 import TodoPage from "./todo-app/components/TodoPage";
 
 function App() {
@@ -6,6 +7,8 @@ function App() {
     <div>
       {/* <Practice /> */}
       <TodoPage />
+
+      {/* <TestEx1 /> */}
     </div>
   );
 }

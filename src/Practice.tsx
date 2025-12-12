@@ -6,12 +6,10 @@ import ButtonToggle from "./basic-typescript/bt5/ButtonToggle";
 import CardInput from "./basic-typescript/bt6/CardInput";
 import ListComponentWithGenericUI from "./basic-typescript/bt7/ListComponentWithGenericUI";
 import ChildrenPropUI from "./basic-typescript/bt8/ChildrenPropUI";
-import DarkModeButton from "./todo-app/components/ThemeToggle";
 
 const Practice = () => {
   return (
     <div>
-      <DarkModeButton />
       <hr></hr>
       <h1>Children Prop</h1>
       <ChildrenPropUI />
