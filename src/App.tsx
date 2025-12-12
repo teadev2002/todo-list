@@ -1,5 +1,5 @@
 //import Practice from "./Practice";
-import TodoPage from "./todo-app/components/Layout";
+import TodoPage from "./todo-app/components/TodoPage";
 
 function App() {
   return (
