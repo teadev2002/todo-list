@@ -133,9 +133,7 @@ const TestEx1 = () => {
                   <Button
                     icon={<EditOutlined />}
                     onClick={() => showEditModal(user)}
-                  >
-                    Sửa
-                  </Button>
+                  ></Button>
                   <Popconfirm
                     key="delete"
                     title="Xóa nhân sự"
@@ -145,9 +143,11 @@ const TestEx1 = () => {
                     cancelText="Hủy"
                     okButtonProps={{ danger: true }}
                   >
-                    <Button type="text" danger icon={<DeleteOutlined />}>
-                      Xóa
-                    </Button>
+                    <Button
+                      type="text"
+                      danger
+                      icon={<DeleteOutlined />}
+                    ></Button>
                   </Popconfirm>
                 </Flex>
               }
