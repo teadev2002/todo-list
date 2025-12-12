@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 
 interface UseFetchResult<T> {
@@ -17,10 +18,9 @@ const useFetch = <T>(url: string): UseFetchResult<T>  => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const res = await fetch(url, { signal: controller.signal });
-        if (!res.ok) throw new Error("Network error");
-        const json = await res.json();
-        setData(json);
+        const res = await axios.get<T>(url, { signal: controller.signal });
+         
+        setData( res.data);
         setError(null);
       } catch (err : unknown) {
         if (err instanceof Error && err.name !== "AbortError") {

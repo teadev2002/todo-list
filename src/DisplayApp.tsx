@@ -7,9 +7,10 @@ import {
   CheckSquareOutlined,
 } from "@ant-design/icons";
 
-import TestEx1 from "./ex-useFetch/bt1_basic-useFetch/TestEx1";
+import TestEx1 from "./ex-useFetch/bt1_advance-useFetch/TestEx1";
 import Practice from "./Practice";
 import TodoPage from "./todo-app/components/TodoPage";
+import TestEx1v1 from "./ex-useFetch/bt1_basic-useFetch/TestEx1v1";
 
 const { Header, Content, Footer } = Layout;
 
@@ -21,8 +22,20 @@ const items = [
   },
   {
     key: "2",
-    label: <Link to="/users">Danh sách Users</Link>,
+    label: <Link to="/">Danh sách Users</Link>,
     icon: <UserOutlined />,
+    children: [
+      {
+        key: "2-1",
+        label: <Link to="/user/v2">Danh sách Users-advance</Link>,
+        icon: <UserOutlined />,
+      },
+      {
+        key: "2-2",
+        label: <Link to="/user/v1">Danh sách Users-basic</Link>,
+        icon: <UserOutlined />,
+      },
+    ],
   },
   {
     key: "3",
@@ -43,16 +56,18 @@ const HomePage = () => (
   </div>
 );
 
-function DisplayApp() {
+const DisplayApp = () => {
   return (
     // Bọc toàn bộ ứng dụng bằng BrowserRouter
     <BrowserRouter>
       <Layout style={{ minHeight: "100vh" }}>
         {/* Thanh Điều Hướng (Navigation Bar) */}
-        <Header style={{ display: "flex", alignItems: "center" }}>
+        <Header
+          style={{ display: "flex", alignItems: "center", background: "#fff" }}
+        >
           <div className="logo" /> {/* Có thể thêm logo nếu cần */}
           <Menu
-            theme="dark"
+            theme="light"
             mode="horizontal"
             defaultSelectedKeys={["1"]}
             items={items}
@@ -73,7 +88,8 @@ function DisplayApp() {
             <Routes>
               <Route path="/" element={<HomePage />} />
 
-              <Route path="/users" element={<TestEx1 />} />
+              <Route path="/user/v2" element={<TestEx1 />} />
+              <Route path="/user/v1" element={<TestEx1v1 />} />
 
               <Route path="/todo" element={<TodoPage />} />
 
@@ -97,6 +113,6 @@ function DisplayApp() {
       </Layout>
     </BrowserRouter>
   );
-}
+};
 
 export default DisplayApp;
