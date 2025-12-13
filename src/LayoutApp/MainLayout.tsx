@@ -5,6 +5,7 @@ import {
   ExperimentOutlined,
   UserOutlined,
   CheckSquareOutlined,
+  UsergroupAddOutlined,
 } from "@ant-design/icons";
 
 import TestEx1 from "../ex-useFetch/bt1_advance-useFetch/TestEx1";
@@ -18,40 +19,40 @@ const { Header, Content, Footer } = Layout;
 const items = [
   {
     key: "1",
-    label: <Link to="/home">Trang chủ</Link>,
+    label: <Link to="/home"> </Link>,
     icon: <HomeOutlined />,
   },
   {
     key: "2",
-    label: <Link to="#">Danh sách Users</Link>,
-    icon: <UserOutlined />,
+    label: <Link to="#"> </Link>,
+    icon: <UsergroupAddOutlined />,
     children: [
       {
         key: "2-1",
-        label: <Link to="/user/v2">Danh sách Users-advance</Link>,
-        icon: <UserOutlined />,
+        label: <Link to="/user/v2"> List User v2 </Link>,
+        icon: <UsergroupAddOutlined />,
       },
       {
         key: "2-2",
-        label: <Link to="/user/v1">Danh sách Users-basic</Link>,
-        icon: <UserOutlined />,
+        label: <Link to="/user/v1">List User v1 </Link>,
+        icon: <UsergroupAddOutlined />,
       },
     ],
   },
   {
     key: "3",
-    label: <Link to="/todo">Todo App</Link>,
+    label: <Link to="/todo"> </Link>,
     icon: <CheckSquareOutlined />,
   },
   {
     key: "4",
-    label: <Link to="/practice">Practice</Link>,
+    label: <Link to="/practice"> </Link>,
     icon: <ExperimentOutlined />,
   },
   {
     key: "5",
-    label: <Link to="/login">Login</Link>,
-    icon: <ExperimentOutlined />,
+    label: <Link to="/login"> </Link>,
+    icon: <UserOutlined />,
   },
 ];
 
