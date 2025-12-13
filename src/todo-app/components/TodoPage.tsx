@@ -7,7 +7,7 @@ const TodoPage = () => {
   const { todos, addTodo, toggleTodo, deleteTodo } = useTodos();
 
   return (
-    <div style={{ padding: 32 }}>
+    <div style={{ width: "100%", paddingTop: "20px" }}>
       <TodoForm addTodo={addTodo} />
 
       <Modal title="Todo List">

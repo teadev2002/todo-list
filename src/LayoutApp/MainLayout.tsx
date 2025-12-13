@@ -76,11 +76,10 @@ const MainLayout = () => {
       </Header>
 
       {/* Nội dung Trang */}
-      <Content style={{ padding: "0 48px" }}>
+      <Content style={{ padding: "0 20px" }}>
         <div
           style={{
-            padding: 24,
-            minHeight: 380,
+            margin: "0",
             background: "#fff",
           }}
         >
