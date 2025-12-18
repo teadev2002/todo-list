@@ -14,6 +14,7 @@ import TodoPage from "../todo-app/components/TodoPage";
 import TestEx1v1 from "../ex-useFetch/bt1_basic-useFetch/TestEx1v1";
 import HomePage from "../pages/HomePage";
 import TestEx1v3 from "../ex-useFetch/bt1_advance-useFetch-v3/TestEx1v3";
+import TestEx2 from "../ex-useFetch/bt2_refetch_dependency-array/TestEx2";
 
 const { Header, Content, Footer } = Layout;
 
@@ -35,12 +36,19 @@ const items = [
       },
       {
         key: "2-2",
-        label: <Link to="/user/v1">List User v1 </Link>,
+        label: <Link to="/user/v1">List User v1 useFetch basic</Link>,
         icon: <UsergroupAddOutlined />,
       },
       {
         key: "2-3",
         label: <Link to="/dragon-ball-characters">Dragon Ball Character </Link>,
+        icon: <UsergroupAddOutlined />,
+      },
+      {
+        key: "2-4",
+        label: (
+          <Link to="/user/v1-refetch"> List User v1 useFetch refetch</Link>
+        ),
         icon: <UsergroupAddOutlined />,
       },
     ],
@@ -93,6 +101,7 @@ const MainLayout = () => {
           <Routes>
             <Route path="/home" element={<HomePage />} />
 
+            <Route path="/user/v1-refetch" element={<TestEx2 />} />
             <Route path="/user/v2" element={<TestEx1 />} />
             <Route path="/user/v1" element={<TestEx1v1 />} />
             <Route path="/dragon-ball-characters" element={<TestEx1v3 />} />
