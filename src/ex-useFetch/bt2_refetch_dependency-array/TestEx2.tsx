@@ -4,14 +4,14 @@ import axios from "axios";
 import Loader from "./Loader";
 
 // 1. Cập nhật Interface cho dữ liệu thực tế: name, age, id
-interface User {
+export interface User {
   id: string; // ID từ MockAPI thường là chuỗi
   name: string;
   age: number;
   // Các trường khác nếu MockAPI trả về
 }
 
-const API_ENDPOINT = "https://693c5aa0b762a4f15c404a15.mockapi.io/user";
+export const API_ENDPOINT = "https://693c5aa0b762a4f15c404a15.mockapi.io/user";
 
 const TestEx2 = () => {
   // 2. Sử dụng hook useFetchV2 với URL và kiểu dữ liệu mới

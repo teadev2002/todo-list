@@ -1,5 +1,5 @@
 import { Routes, Route, Link } from "react-router-dom";
-import { Layout, Menu } from "antd";
+import { Button, Layout, Menu } from "antd";
 import {
   HomeOutlined,
   ExperimentOutlined,
@@ -15,6 +15,7 @@ import TestEx1v1 from "../ex-useFetch/bt1_basic-useFetch/TestEx1v1";
 import HomePage from "../pages/HomePage";
 import TestEx1v3 from "../ex-useFetch/bt1_advance-useFetch-v3/TestEx1v3";
 import TestEx2 from "../ex-useFetch/bt2_refetch_dependency-array/TestEx2";
+import TestEx3 from "../ex-useFetch/bt3_mutate/TestEx3";
 
 const { Header, Content, Footer } = Layout;
 
@@ -30,6 +31,18 @@ const items = [
     icon: <UsergroupAddOutlined />,
     children: [
       {
+        key: "2-5",
+        label: <Link to="/user/v3-mutate"> List User v3 useFetch mutate</Link>,
+        icon: <UsergroupAddOutlined />,
+      },
+      {
+        key: "2-4",
+        label: (
+          <Link to="/user/v1-refetch"> List User v1 useFetch refetch</Link>
+        ),
+        icon: <UsergroupAddOutlined />,
+      },
+      {
         key: "2-1",
         label: <Link to="/user/v2"> List User v2 </Link>,
         icon: <UsergroupAddOutlined />,
@@ -42,13 +55,6 @@ const items = [
       {
         key: "2-3",
         label: <Link to="/dragon-ball-characters">Dragon Ball Character </Link>,
-        icon: <UsergroupAddOutlined />,
-      },
-      {
-        key: "2-4",
-        label: (
-          <Link to="/user/v1-refetch"> List User v1 useFetch refetch</Link>
-        ),
         icon: <UsergroupAddOutlined />,
       },
     ],
@@ -101,6 +107,7 @@ const MainLayout = () => {
           <Routes>
             <Route path="/home" element={<HomePage />} />
 
+            <Route path="/user/v3-mutate" element={<TestEx3 />} />
             <Route path="/user/v1-refetch" element={<TestEx2 />} />
             <Route path="/user/v2" element={<TestEx1 />} />
             <Route path="/user/v1" element={<TestEx1v1 />} />
@@ -113,7 +120,9 @@ const MainLayout = () => {
               path="*"
               element={
                 <div style={{ textAlign: "center", marginTop: "50px" }}>
-                  <h2>404 - Không tìm thấy trang</h2>
+                  <Button type="primary" href="/home">
+                    Trang chủ
+                  </Button>
                 </div>
               }
             />
