@@ -14,13 +14,13 @@ import {
   Input,
   InputNumber,
 } from "antd";
-import { API_ENDPOINT } from "../bt2_refetch_dependency-array/TestEx2";
 import CardCustom from "../../components/UI/CardCustom";
+import { userService } from "./userService";
 
 const { Text } = Typography;
 
 const TestEx3 = () => {
-  const { loading, error, request } = useFetchMutate<User[] | User>();
+  const { loading, error, request } = useFetchMutate();
   const [users, setUsers] = useState<User[]>([]);
 
   // State cho Modal PUT
@@ -29,10 +29,8 @@ const TestEx3 = () => {
   const [form] = Form.useForm();
 
   const handleGet = async () => {
-    const data = await request(API_ENDPOINT, "GET");
-    if (data && Array.isArray(data)) {
-      setUsers(data);
-    }
+    const data = await userService.getUsers(request);
+    if (data) setUsers(data);
   };
 
   useEffect(() => {
@@ -43,7 +41,8 @@ const TestEx3 = () => {
   const handlePost = async () => {
     const nameUser = `User_${Math.random().toString(36).substring(2, 8)}`;
     const ageUser = Math.floor(Math.random() * 100);
-    const result = await request(API_ENDPOINT, "POST", {
+
+    const result = await userService.createUser(request, {
       name: nameUser,
       age: ageUser,
     });
@@ -55,7 +54,7 @@ const TestEx3 = () => {
   };
 
   const handleDeleteById = async (id: string) => {
-    const result = await request(`${API_ENDPOINT}/${id}`, "DELETE");
+    const result = await userService.deleteUser(request, id);
     if (result) {
       message.error(`Đã xóa user ID: ${id}`);
       handleGet();
@@ -70,22 +69,19 @@ const TestEx3 = () => {
   };
 
   const handleUpdate = async () => {
-    try {
-      const values = await form.validateFields();
-      if (editingUser) {
-        const result = await request(
-          `${API_ENDPOINT}/${editingUser.id}`,
-          "PUT",
-          values
-        );
-        if (result) {
-          message.success("Cập nhật thông tin thành công!");
-          setIsModalOpen(false);
-          handleGet(); // Load lại danh sách mới
-        }
-      }
-    } catch (info) {
-      console.log("Validate Failed:", info);
+    const values = await form.validateFields();
+    if (!editingUser) return;
+
+    const result = await userService.updateUser(
+      request,
+      editingUser.id,
+      values
+    );
+
+    if (result) {
+      message.success("Cập nhật thông tin thành công!");
+      setIsModalOpen(false);
+      handleGet();
     }
   };
 
