@@ -16,6 +16,7 @@ import HomePage from "../pages/HomePage";
 import TestEx1v3 from "../ex-useFetch/bt1_advance-useFetch-v3/TestEx1v3";
 import TestEx2 from "../ex-useFetch/bt2_refetch_dependency-array/TestEx2";
 import TestEx3 from "../ex-useFetch/bt3_mutate/TestEx3";
+import TestEx4 from "../ex-useFetch/bt4_basic-cache/TestEx4";
 
 const { Header, Content, Footer } = Layout;
 
@@ -30,6 +31,11 @@ const items = [
     label: <Link to="#"> </Link>,
     icon: <UsergroupAddOutlined />,
     children: [
+      {
+        key: "2-6",
+        label: <Link to="/user/v4-cache"> List User v4 useFetch cache</Link>,
+        icon: <UsergroupAddOutlined />,
+      },
       {
         key: "2-5",
         label: <Link to="/user/v3-mutate"> List User v3 useFetch mutate</Link>,
@@ -107,6 +113,7 @@ const MainLayout = () => {
           <Routes>
             <Route path="/home" element={<HomePage />} />
 
+            <Route path="/user/v4-cache" element={<TestEx4 />} />
             <Route path="/user/v3-mutate" element={<TestEx3 />} />
             <Route path="/user/v1-refetch" element={<TestEx2 />} />
             <Route path="/user/v2" element={<TestEx1 />} />
