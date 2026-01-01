@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useState, useCallback} from "react";
 
 export function useFetchMutate() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function request<T>(
+const request = useCallback(async <T>(
     url: string,
     method: "GET" | "POST" | "PUT" | "DELETE" = "GET",
     body?: unknown
-  ): Promise<T | null> {
+  ): Promise<T | null> => {
     try {
       setLoading(true);
       const res = await fetch(url, {
@@ -24,7 +24,7 @@ export function useFetchMutate() {
     } finally {
       setLoading(false);
     }
-  }
+  }, []);
 
   return { request, loading, error };
 }
